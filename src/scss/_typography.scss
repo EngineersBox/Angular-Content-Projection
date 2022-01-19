@@ -1,0 +1,128 @@
+@import '~@angular/material/theming';
+@import './variables';
+@import './mixins';
+
+// mat-typography-level
+
+@mixin headings() {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    @content;
+  }
+}
+
+@include headings() {
+  color: $insta-secondary;
+  margin: 1rem 0;
+}
+
+.dark {
+  @include headings() {
+    color: $insta-white;
+    margin: 1rem 0;
+  }
+}
+
+h1,
+.h1 {
+  font-size: pxToRem(52);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+h2,
+.h2 {
+  font-size: pxToRem(36);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+h3,
+.h3 {
+  font-size: pxToRem(30);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+h4,
+.h4 {
+  @include setFont(24, 'medium');
+  letter-spacing: -0.5px;
+}
+
+h5,
+.h5 {
+  @include setFont(20, 'light');
+  letter-spacing: -0.5px;
+}
+
+h6,
+.h6 {
+  font-size: pxToRem(16);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+a {
+  @include transition(color, 200ms, 'easeInOutQuint');
+  color: $insta-primary;
+
+  &:hover {
+    color: $insta-secondary;
+  }
+}
+
+.success {
+  color: $insta-success;
+}
+
+.danger {
+  color: $insta-danger;
+}
+
+.info {
+  color: $insta-info;
+}
+
+.warn {
+  color: $insta-warn;
+}
+
+
+code {
+  color: $insta-danger;
+  background-color: lighten($insta-danger-bg-color, 2%);
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+}
+
+code.hljs {
+  background-color: getGrey('300');
+  border: 1px solid  getGrey('400');
+  border-radius: 4px;
+  padding: 12px 10px;
+}
+
+.error-text {
+    font-size: 0.75em;
+    font-weight: normal;
+    color: $insta-danger;
+}

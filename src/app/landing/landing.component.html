@@ -1,0 +1,20 @@
+<h2>This is an example of single content projection</h2>
+<app-single-slot-content>
+    <p>Here is some content injected as a single slot</p>
+    <ul>
+        <li>List 1</li>
+        <li>List 2</li>
+    </ul>
+</app-single-slot-content>
+<app-multi-slot-content>
+    <div firstSlot>
+        <p>This content is injected into a matching <i>select="firstSlot"</i> marked ng-content</p>
+    </div>
+    <div secondSlot>
+      <p>This content is injected into a matching <i>select="secondSlot"</i> marked ng-content</p>
+      <ul>
+        <li>List 1</li>
+        <li>List 2</li>
+      </ul>
+    </div>
+</app-multi-slot-content>

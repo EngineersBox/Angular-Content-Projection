@@ -1,0 +1,22 @@
+@import './variables';
+
+.mat-expansion-panel {
+  color: $insta-base-font-color;
+  &.transparent {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.mat-expansion-panel-body {
+  padding-bottom: 0;
+}
+
+.mat-expansion-panel-header, .mat-expansion-panel-header:not(.collapsed):focus, .mat-expansion-panel-header:not(.mat-expanded):focus {
+  background-color: map-get($insta-grays, '200');
+};
+
+.mat-expansion-panel-header:not(.collapsed):hover, .mat-expansion-panel-header:not(.mat-expanded):hover, .mat-expansion-panel-header:not(.collapsed):hover:focus, .mat-expansion-panel-header:not(.mat-expanded):hover:focus  {
+background-color: map-get($insta-grays, '300');
+};
