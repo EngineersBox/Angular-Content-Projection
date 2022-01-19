@@ -1,0 +1,157 @@
+/*
+ * CUSTOM
+ * ========================================== */
+
+/*
+ * COLOURS
+ * ------------------------------------------ */
+$insta-grays: (
+  '50': #fbfbfb,
+  '100': #f4f8f7,
+  '200': #eef5f4,
+  '300': #e3ebeb,
+  '400': #aeb6cb,
+  '500': #959cac,
+  '600': #767c8d,
+  '700': #4f5565,
+  '800': #474b5b,
+  '900': #323440,
+  '1000': rgba(40, 40, 40, 0.98)
+);
+$insta-greys: $insta-grays;
+$insta-white: #ffffff;
+$insta-black: #241f20;
+$insta-dark: map-get($insta-grays, '1000');
+$insta-primary: #00beec;
+$insta-secondary: #001050;
+$insta-light: #f3f9fa;
+$insta-accent: #bb4011;
+$insta-warn: #a37a0d;
+$insta-danger: #bc1e1e;
+$insta-success: #388121;
+$insta-info: #1b7c90;
+
+$insta-base-font-color: map-get($insta-grays, '600');
+$insta-bg-color: map-get($insta-grays, '50');
+
+$insta-warn-bg-color: lighten($insta-warn, 55%);
+
+$insta-danger-bg-color: lighten($insta-danger, 50%);
+
+$insta-success-bg-color: lighten($insta-success, 60%);
+
+$insta-info-bg-color: lighten($insta-info, 60%);
+
+$insta-primary-bg-color: lighten($insta-primary, 40%);
+
+/*
+ * FONTS
+ * ------------------------------------------ */
+$base-font-size: 16;
+$font-family: 'Montserrat', sans-serif;
+$font-sizes: (
+  'extra-small': 9,
+  'small': 12,
+  'regular': 16
+) !default;
+
+$font-weights: (
+  'thin': 100,
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900
+) !default;
+
+/*
+ * MEASUREMENTS
+ * ------------------------------------------ */
+$breakpoints: (
+  'xsmall': 0,
+  'small': 599px,
+  'medium': 1023px,
+  'large': 1599px,
+  'xlarge': 1919px
+) !default;
+$easings: (
+  'easeInSine': cubic-bezier(0.47, 0, 0.745, 0.715),
+  'easeOutSine': cubic-bezier(0.39, 0.575, 0.565, 1),
+  'easeInOutSine': cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  'easeInQuad': cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  'easeOutQuad': cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  'easeInOutQuad': cubic-bezier(0.455, 0.03, 0.515, 0.955),
+  'easeInCubic': cubic-bezier(0.55, 0.055, 0.675, 0.19),
+  'easeOutCubic': cubic-bezier(0.215, 0.61, 0.355, 1),
+  'easeInOutCubic': cubic-bezier(0.645, 0.045, 0.355, 1),
+  'easeInQuint': cubic-bezier(0.755, 0.05, 0.855, 0.06),
+  'easeOutQuint': cubic-bezier(0.23, 1, 0.32, 1),
+  'easeInOutQuint': cubic-bezier(0.86, 0, 0.07, 1),
+  'easeInExpo': cubic-bezier(0.95, 0.05, 0.795, 0.035),
+  'easeOutExpo': cubic-bezier(0.19, 1, 0.22, 1),
+  'easeInOutExpo': cubic-bezier(1, 0, 0, 1),
+  'easeInCirc': cubic-bezier(0.6, 0.04, 0.98, 0.335),
+  'easeOutCirc': cubic-bezier(0.075, 0.82, 0.165, 1),
+  'easeInOutCirc': cubic-bezier(0.785, 0.135, 0.15, 0.86),
+  'easeInBack': cubic-bezier(0.6, -0.28, 0.735, 0.045),
+  'easeOutBack': cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  'easeInOutBack': cubic-bezier(0.68, -0.55, 0.265, 1.55)
+) !default;
+$gutters: 16px;
+$content-indent: (
+  'small': 0 40px,
+  'large': 0 80px
+);
+$side-menu-width: 340px;
+$side-menu-width-collapsed: 90px;
+$base-icon-size: 1.5rem;
+$icon-sizes: (
+  'x0\\.5': $base-icon-size * 0.5,
+  'x0\\.75': $base-icon-size * 0.75,
+  'x1': $base-icon-size,
+  'x1\\.25': $base-icon-size * 1.25,
+  'x1\\.5': $base-icon-size * 1.5,
+  'x1\\.75': $base-icon-size * 1.75,
+  'x2': $base-icon-size * 2,
+  'x2\\.25': $base-icon-size * 2.25,
+  'x2\\.5': $base-icon-size * 2.5,
+  'x2\\.75': $base-icon-size * 2.75,
+  'x3': $base-icon-size * 3,
+  'x3\\.25': $base-icon-size * 3.25,
+  'x3\\.5': $base-icon-size * 3.5,
+  'x3\\.75': $base-icon-size * 3.75,
+  'x4': $base-icon-size * 4
+) !default;
+$max-content-width: 1280px;
+
+$block-width: (
+  'small': 576px,
+  'medium': 768px,
+  'large': 990px
+);
+
+/*
+ * EFFECTS
+ * ------------------------------------------ */
+$box-shadows: (
+  'small': '0 4px 8px rgba(0, 0, 0, 0.07)',
+  'medium': '0 8px 30px rgba(0, 0, 0, 0.07)',
+  'large': '0 2px 8px rgba(0, 0, 0, 0.05), 0 16px 60px rgba(0, 0, 0, 0.07)'
+);
+
+$hover-box-shadows: (
+  'small': '0 4px 8px rgba(0, 0, 0, 0.2)',
+  'medium': '0 8px 30px rgba(0, 0, 0, 0.2)',
+  'large': '0 2px 8px rgba(0, 0, 0, 0.18), 0 16px 60px rgba(0, 0, 0, 0.2)'
+);
+
+$selected-box-shadow: 0 0 0 4px $insta-primary;
+
+/*
+ * MATERIAL OVERRIDES
+ * ========================================== */
+$dark-primary-text: $insta-white;
+$light-primary-text: $insta-base-font-color;

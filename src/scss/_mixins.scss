@@ -1,0 +1,131 @@
+@import './variables';
+
+@mixin screen($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin unstyled-list {
+  list-style: none;
+
+  &,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@mixin circle($size: 16px) {
+  border-radius: 100%;
+  flex: 0 0 $size;
+  height: $size;
+  width: $size;
+}
+
+@mixin transition($prop, $duration: 300ms, $ease: 'easeOutQuint') {
+  transition-property: $prop;
+  transition-duration: $duration;
+  @if map-has-key($easings, $ease) {
+    transition-timing-function: map-get($easings, $ease);
+  } @else {
+    transition-timing-function: map-get($easings, 'easeOutQuint');
+  }
+}
+
+@function pxToRem($px: 16) {
+  @return 1rem * $px / $base-font-size;
+}
+
+@function createColor($color) {
+  @return (
+    50: lighten($color, 75%),
+    100: lighten($color, 60%),
+    200: lighten($color, 45%),
+    300: lighten($color, 30%),
+    400: lighten($color, 15%),
+    500: $color,
+    600: darken($color, 15%),
+    700: darken($color, 30%),
+    800: darken($color, 45%),
+    900: darken($color, 60%),
+    A100: lighten(saturate($color, 50%), 0.25),
+    A200: lighten(saturate($color, 50%), 0.5),
+    A400: darken(saturate($color, 50%), 0.5),
+    A700: darken(saturate($color, 50%), 0.75),
+    contrast: (
+      50: $dark-primary-text,
+      100: $dark-primary-text,
+      200: $dark-primary-text,
+      300: $dark-primary-text,
+      400: $dark-primary-text,
+      500: $light-primary-text,
+      600: $light-primary-text,
+      700: $light-primary-text,
+      800: $light-primary-text,
+      900: $light-primary-text,
+      A100: $dark-primary-text,
+      A200: $dark-primary-text,
+      A400: $dark-primary-text,
+      A700: black
+    )
+  );
+}
+
+@mixin boxShadow($size) {
+  @if map-has-key($box-shadows, $size) {
+    box-shadow: unquote(map-get($box-shadows, $size));
+  } @else {
+    box-shadow: unquote(map-get($box-shadows, 'small'));
+  }
+}
+
+@mixin hoverBoxShadow($size) {
+  @if map-has-key($box-shadows, $size) {
+    box-shadow: unquote(map-get($hover-box-shadows, $size));
+  }
+  @else {
+    box-shadow: unquote(map-get($hover-box-shadows, 'small'));
+  }
+}
+
+@mixin setFont($size, $weight: 'regular') {
+  font-size: pxToRem($size);
+  @if map-has-key($font-weights, $weight) {
+    font-weight: map-get($font-weights, $weight);
+  } @else {
+    font-weight: map-get($font-weights, 'regular');
+  }
+}
+
+@function getGrey($level: '500') {
+  @if map-has-key($insta-grays, $level) {
+    @return map-get($insta-grays, $level);
+  } @else {
+    @return map-get($insta-grays, '500');
+  }
+}
+
+@mixin dropDownItem() {
+  @include transition(background-color, 500ms, 'easeOutExpo');
+  color: $insta-base-font-color;
+  padding: 0 2rem;
+
+  &:nth-child(even) {
+    background-color: getGrey('50');
+  }
+
+  &:hover {
+    background-color: getGrey('300');
+  }
+}
+
+@mixin centerMargin() {
+  margin-left: auto;
+  margin-right: auto;
+}

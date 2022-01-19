@@ -1,0 +1,77 @@
+@import './variables';
+@import './mixins';
+
+$display: block, inline-block, flex, inline-flex, grid, inline-grid, none, inline, table;
+$box-sizes: (0, 0.5, 1, 2, 3, 5, 8, 13);
+$box-axis: (top, bottom, left, right);
+
+@each $value in $display {
+  .d-#{$value} {
+    display: $value;
+  }
+}
+
+@each $size in $box-sizes {
+  @each $axis in $box-axis {
+    .m#{str-slice($axis, 0, 1)}-#{index($box-sizes, $size) - 1} {
+      margin-#{$axis}: 1rem * $size !important;
+    }
+    .p#{str-slice($axis, 0, 1)}-#{index($box-sizes, $size) - 1} {
+      padding-#{$axis}: 1rem * $size !important;
+    }
+  }
+}
+
+@each $size in $box-sizes {
+  .m-#{index($box-sizes, $size) - 1} {
+    margin: 1rem * $size !important;
+  }
+  .p-#{index($box-sizes, $size) - 1} {
+    padding: 1rem * $size !important;
+  }
+}
+
+@each $axis in $box-axis {
+  .m#{str-slice($axis, 0, 1)}-auto {
+    margin-#{$axis}: auto !important;
+  }
+}
+
+.sticky {
+  position: sticky !important;
+  top: 0;
+  z-index: 99;
+
+  &.t-80 {
+    top: 5rem;
+  }
+
+  &.t-112 {
+    top: 7rem;
+  }
+}
+
+
+$gapSizes: (0, 5, 10, 20, 30);
+
+@each $gapSize in $gapSizes {
+  .margin-top-#{$gapSize} {
+    margin-top: $gapSize+px;
+  }
+
+  .margin-bottom-#{$gapSize} {
+    margin-bottom: $gapSize+px;
+  }
+
+  .padded-#{$gapSize} {
+    padding: $gapSize+px;
+  }
+}
+
+.white-text {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}

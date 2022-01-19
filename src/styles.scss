@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* To use Angular material defaults */
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// and put this line in the angular.json styles array:  "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
+
+
+
+/* From custom theme */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import './scss/variables';
+@import './scss/mixins';
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+$custom-typography: mat-typography-config($font-family: $font-family);
+@include mat-core($custom-typography);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$insta-primary-palette: mat-palette(createColor($insta-primary));
+$insta-accent-palette: mat-palette(createColor($insta-accent));
+$insta-warn-palette: mat-palette(createColor($insta-danger));
+$insta-theme: mat-light-theme($insta-primary-palette, $insta-accent-palette, $insta-warn-palette);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($insta-theme);
+
+// Import CSS for code highlighting
+@import '~highlight.js/styles/github.css';
+
+/* You can add global styles to this file, and also import other style files */
+
+@import './scss/cards';
+@import './scss/css-utilities';
+@import './scss/typography';
+@import './scss/link';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: pxToRem();
+  background-color: $insta-bg-color;
+  color: $insta-base-font-color;
+  font-family: $font-family;
+  margin: 0;
+}

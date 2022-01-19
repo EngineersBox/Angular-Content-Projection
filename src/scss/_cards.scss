@@ -1,0 +1,20 @@
+@import './variables';
+
+mat-card,
+.mat-card,
+mat-card.mat-card {
+  border-radius: 2px;
+  color: $insta-base-font-color;
+  padding: 1rem;
+  margin: $gutters $gutters $gutters 0;
+  background-color: white;
+  transition:  box-shadow 200ms;
+
+  &:not([class*='mat-elevation-z']) {
+    @include boxShadow('small');
+  }
+}
+
+mat-card-content, .mat-card-content {
+  font-size: inherit;
+}
