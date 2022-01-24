@@ -1,2 +1,2 @@
-# Angular-Content-Injection
-An example of content injection with Angular
+# Angular Content Projection
+An example of content projection with Angular
