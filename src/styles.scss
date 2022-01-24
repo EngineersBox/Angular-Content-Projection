@@ -40,9 +40,6 @@ $insta-theme: mat-light-theme($insta-primary-palette, $insta-accent-palette, $in
 // that you are using.
 @include angular-material-theme($insta-theme);
 
-// Import CSS for code highlighting
-@import '~highlight.js/styles/github.css';
-
 /* You can add global styles to this file, and also import other style files */
 
 @import './scss/cards';
